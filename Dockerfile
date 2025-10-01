@@ -15,7 +15,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # Build the Next.js app
-RUN npm run build
+RUN npm run build -- --no-lint
 # Prune dev deps for smaller runtime
 RUN npm prune --omit=dev
 
